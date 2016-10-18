@@ -1,4 +1,4 @@
-package ie.cit.assignment.Dao;
+package ie.cit.assignment.dao;
 
 import ie.cit.assignment.domain.Tax;
 
