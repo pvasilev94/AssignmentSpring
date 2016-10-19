@@ -8,7 +8,7 @@ import com.sun.istack.internal.NotNull;
  C.	The remainder is taxed at 40%
  D.	There is also a solidarity tax charged on all income of 3%
  */
-
+//TODO database needs to be changed. Wrong schema
 public class Tax {
     @NotNull
     String TAX_A;

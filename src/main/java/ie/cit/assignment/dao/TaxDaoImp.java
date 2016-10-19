@@ -8,9 +8,6 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-/**
- * Created by Pavel on 18/10/2016.
- */
 @Repository
 public class TaxDaoImp implements TaxDao {
 

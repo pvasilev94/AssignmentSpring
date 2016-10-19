@@ -1,0 +1,12 @@
+CREATE TABLE citizen (
+  name varchar(100) NOT NULL,
+  salary varchar(10) NOT NULL,
+  PRIMARY KEY (NAME)
+);
+CREATE TABLE tax (
+  A FLOAT (100) NOT NULL,
+  B FLOAT (100) NOT NULL,
+  C FLOAT (100) NOT NULL,
+  D FLOAT (100) NOT NULL
+);
+
