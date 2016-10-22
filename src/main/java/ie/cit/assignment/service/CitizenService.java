@@ -16,4 +16,5 @@ public interface CitizenService {
     List<Tax> findAllTaxes();
 
     void update(Tax tax);
+
 }

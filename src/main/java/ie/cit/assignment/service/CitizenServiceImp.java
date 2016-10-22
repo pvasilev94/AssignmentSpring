@@ -40,4 +40,10 @@ public class CitizenServiceImp implements CitizenService {
     public void update(Tax tax) {
         taxDao.update(tax);
     }
+
+    private double salaryAfterTax(List<Citizen> citizenList) {
+        double homePay;
+        homePay = 0;
+        return homePay;
+    }
 }
