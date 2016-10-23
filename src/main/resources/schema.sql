@@ -1,12 +1,14 @@
 CREATE TABLE citizen (
   name varchar(100) NOT NULL,
-  salary varchar(10) NOT NULL,
+  salary INTEGER (100) NOT NULL,
   PRIMARY KEY (NAME)
 );
 CREATE TABLE tax (
-  A FLOAT (100) NOT NULL,
-  B FLOAT (100) NOT NULL,
-  C FLOAT (100) NOT NULL,
-  D FLOAT (100) NOT NULL
+  taxID varchar(1) NOT NULL,
+  taxCategory INT (1) NOT NULL,
+  taxName varchar(100) NOT NULL,
+  taxRangeStart INTEGER (100) NOT NULL,
+  taxRangeFinish INTEGER (100) NOT NULL,
+  taxRate INTEGER (100) NOT NULL
 );
 

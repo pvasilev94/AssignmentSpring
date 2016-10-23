@@ -12,10 +12,12 @@ public class TaxRowMapper implements RowMapper<Tax> {
     public Tax mapRow(ResultSet rs, int rowNum) throws SQLException {
         Tax tax = new Tax();
 
-        tax.setTAX_A(rs.getString("A"));
-        tax.setTAX_B(rs.getString("B"));
-        tax.setTAX_C(rs.getString("C"));
-        tax.setTAX_D(rs.getString("D"));
+        tax.setTaxID(rs.getString("taxID"));
+        tax.setTaxCategory(rs.getInt("taxCategory"));
+        tax.setTaxName(rs.getString("taxName"));
+        tax.setTaxRangeStart(rs.getLong("taxRangeStart"));
+        tax.setTaxRangeFinish(rs.getLong("taxRangeFinish"));
+        tax.setTaxRate(rs.getLong("taxRate"));
 
         return tax;
     }

@@ -20,8 +20,9 @@ public class CitizenDaoImp implements CitizenDao {
 
     @Override
     public void add(Citizen citizen) {
-        //TODO to be coded
-        //TODO add databases for citizen
+        String query = "insert into citizen (name, salary) values (?, ?)";
+        template.update(query, citizen.getName(), citizen.getSalary());
+        System.out.println("Citizen has been added");
     }
 
     @Override

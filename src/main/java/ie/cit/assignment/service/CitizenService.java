@@ -13,8 +13,6 @@ public interface CitizenService {
 
     void add(Citizen citizen);
 
-    List<Tax> findAllTaxes();
-
     void update(Tax tax);
 
 }

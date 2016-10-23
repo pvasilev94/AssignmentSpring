@@ -1,15 +1,12 @@
 package ie.cit.assignment;
 
 import ie.cit.assignment.domain.Citizen;
+import ie.cit.assignment.service.CitizenService;
+import ie.cit.assignment.service.SpringContextBridgeImp;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Import;
-
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -25,11 +22,11 @@ public class DemoApplication implements CommandLineRunner {
 	}
 
 	public void menu() throws IOException {
+		CitizenService citizenService = SpringContextBridgeImp.services().getService();
 		Scanner br = new Scanner(System.in);
 		int choiceentry = -1;
 		String name = "";
 		double salary = 0;
-		Citizen citizen = new Citizen();
 
 		do {
 			for (int i = 0; i < 3; i++) {
@@ -42,23 +39,31 @@ public class DemoApplication implements CommandLineRunner {
 
 			switch (choiceentry) {
 				case 1:
-					System.out.println("Typed : " + choiceentry);
+					List<Citizen> citizenList = citizenService.findAllCitizen();
+					for (Citizen citizen1 : citizenList) {
+						System.out.println(citizen1.toString());
+					}
 					break;
 				case 2:
+
+					Citizen citizen = new Citizen();
 					br.nextLine();
 					System.out.println("Enter name:");
 					citizen.setName(br.nextLine());
 					System.out.println("Enter salary:");
-					citizen.setSalary(br.nextDouble());
+					citizen.setSalary(br.nextLong());
 					System.out.println("Citizen with name: " + citizen.getName() + " and salary: " + citizen.getSalary() + " has been added");
-
+					citizenService.add(citizen);
 					break;
 				case 3:
+
+					break;
+				case 4:
 					System.out.println("Exit thanks for using the TAX SYSTEM");
 					break;
 				default:
 					System.out.println("Choice must be a value between 1 and 3.");
 			}
-		} while (choiceentry != 3);
+		} while (choiceentry != 4);
 	}
 }
