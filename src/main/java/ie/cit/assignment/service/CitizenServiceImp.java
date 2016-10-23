@@ -28,16 +28,15 @@ public class CitizenServiceImp implements CitizenService {
         return salaryAfterTax(citizenList, taxList);
     }
 
-    public void printTaxes() {
-        List<Tax> taxList = taxDao.findAll();
-        for (Tax tax : taxList) {
-            System.out.println(tax.toString());
-        }
-    }
     @Override
     public void add(Citizen citizen) {
         citizenDao.add(citizen);
 
+    }
+
+    @Override
+    public List<Tax> findAllTax() {
+        return taxDao.findAll();
     }
 
 

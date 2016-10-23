@@ -1,16 +1,17 @@
 package ie.cit.assignment;
 
 import ie.cit.assignment.domain.Citizen;
+import ie.cit.assignment.domain.Tax;
 import ie.cit.assignment.service.CitizenService;
 import ie.cit.assignment.service.SpringContextBridgeImp;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
-import org.springframework.context.annotation.Import;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 import java.io.IOException;
 import java.util.List;
 import java.util.Scanner;
 
-@Import(Config.class)
+@SpringBootApplication
 public class DemoApplication implements CommandLineRunner {
 
 	public static void main(String[] args) {
@@ -25,9 +26,6 @@ public class DemoApplication implements CommandLineRunner {
 		CitizenService citizenService = SpringContextBridgeImp.services().getService();
 		Scanner br = new Scanner(System.in);
 		int choiceentry = -1;
-		String name = "";
-		double salary = 0;
-
 		do {
 			for (int i = 0; i < 3; i++) {
 				System.out.println("");
@@ -36,7 +34,6 @@ public class DemoApplication implements CommandLineRunner {
 					"\"4.Exit\"");
 			if (br.hasNextInt())
 				choiceentry = br.nextInt();
-
 			switch (choiceentry) {
 				case 1:
 					List<Citizen> citizenList = citizenService.findAllCitizen();
@@ -45,7 +42,6 @@ public class DemoApplication implements CommandLineRunner {
 					}
 					break;
 				case 2:
-
 					Citizen citizen = new Citizen();
 					br.nextLine();
 					System.out.println("Enter name:");
@@ -56,7 +52,30 @@ public class DemoApplication implements CommandLineRunner {
 					citizenService.add(citizen);
 					break;
 				case 3:
+					Tax newTax = new Tax();
 					System.out.println("Current tax rates : ");//TODO to be added
+					List<Tax> taxList = citizenService.findAllTax();
+					for (Tax tax : taxList) {
+						System.out.println(tax.toString());
+					}
+					do {
+						System.out.println("1. Change tax and tands");
+						System.out.println("2. Go back to menu");
+						choiceentry = br.nextInt();
+						if (choiceentry == 1) {
+							br.nextLine();
+							System.out.println("Enter ID of tax you want changed");
+							newTax.setTaxID(br.nextLine());
+							System.out.println("Enter New Start Range");
+							newTax.setTaxRangeStart(br.nextLong());
+							System.out.println("Enter New Finish Range");
+							newTax.setTaxRangeFinish(br.nextLong());
+							System.out.println("Enter new tax rate");
+							newTax.setTaxRate(br.nextLong());
+							System.out.println("Taxes has been updated");
+							citizenService.update(newTax);
+						}
+					} while (choiceentry != 2);
 					break;
 				case 4:
 					System.out.println("Exit thanks for using the TAX SYSTEM");

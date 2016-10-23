@@ -26,7 +26,7 @@ public class TaxDaoImp implements TaxDao {
 
     @Override
     public void update(Tax tax) {
-        //TODO to be coded
-        //TODO add databases for tax
+        String query = "UPDATE tax SET taxRangeStart = ?, taxRangeFinish = ?, taxRate = ? WHERE taxID = ?";
+        template.update(query, tax.getTaxRangeStart(), tax.getTaxRangeFinish(), tax.getTaxRate(), tax.getTaxID());
     }
 }

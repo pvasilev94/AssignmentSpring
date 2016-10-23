@@ -70,6 +70,6 @@ public class Tax {
     }
 
     public String toString() {
-        return "TaxID:" + taxID + "taxRate" + taxRate;
+        return "Tax [Tax id: " + taxID + " ; Tax Range Start: +" + taxRangeStart + " ; Tax Range Finish: +" + taxRangeFinish + " ; Tax Rate: %" + taxRate;
     }
 }
