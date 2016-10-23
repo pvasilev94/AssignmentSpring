@@ -56,7 +56,7 @@ public class DemoApplication implements CommandLineRunner {
 					citizenService.add(citizen);
 					break;
 				case 3:
-
+					System.out.println("Current tax rates : ");//TODO to be added
 					break;
 				case 4:
 					System.out.println("Exit thanks for using the TAX SYSTEM");
