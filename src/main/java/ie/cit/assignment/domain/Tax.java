@@ -2,58 +2,74 @@ package ie.cit.assignment.domain;
 
 import com.sun.istack.internal.NotNull;
 
-/**
- A.	The first €10,000 is exempt from tax
- B.	The next €15,000 is subject to 20%
- C.	The remainder is taxed at 40%
- D.	There is also a solidarity tax charged on all income of 3%
- */
+
+//CREATE TABLE tax (
+//        taxID varchar(1) NOT NULL,
+//        taxCategory INT (1) NOT NULL,
+//        taxName varchar(100) NOT NULL,
+//        taxBand varchar(100) NOT NULL,
+//        taxRate long (100) NOT NULL
+//        );
 //TODO database needs to be changed. Wrong schema
 public class Tax {
-    @NotNull
-    String TAX_A;
+    String taxID;
+    int taxCategory;
+    String taxName;
+    long taxRangeStart;
+    long taxRangeFinish;
 
-    @NotNull
-    String TAX_B;
+    long taxRate;
 
-    @NotNull
-    String TAX_C;
-
-    @NotNull
-    String TAX_D;
-
-
-    public Tax() {}
-
-    public String getTAX_A() {
-        return TAX_A;
+    public String getTaxID() {
+        return taxID;
     }
 
-    public void setTAX_A(String TAX_A) {
-        this.TAX_A = TAX_A;
+    public void setTaxID(String taxID) {
+        this.taxID = taxID;
     }
 
-    public String getTAX_B() {
-        return TAX_B;
+    public int getTaxCategory() {
+        return taxCategory;
     }
 
-    public void setTAX_B(String TAX_B) {
-        this.TAX_B = TAX_B;
+    public void setTaxCategory(int taxCategory) {
+        this.taxCategory = taxCategory;
     }
 
-    public String getTAX_C() {
-        return TAX_C;
+    public String getTaxName() {
+        return taxName;
     }
 
-    public void setTAX_C(String TAX_C) {
-        this.TAX_C = TAX_C;
+    public void setTaxName(String taxName) {
+        this.taxName = taxName;
     }
 
-    public String getTAX_D() {
-        return TAX_D;
+
+    public long getTaxRangeStart() {
+        return taxRangeStart;
     }
 
-    public void setTAX_D(String TAX_D) {
-        this.TAX_D = TAX_D;
+    public void setTaxRangeStart(long taxRangeStart) {
+        this.taxRangeStart = taxRangeStart;
+    }
+
+    public long getTaxRangeFinish() {
+        return taxRangeFinish;
+    }
+
+    public void setTaxRangeFinish(long taxRangeFinish) {
+        this.taxRangeFinish = taxRangeFinish;
+    }
+
+    public long getTaxRate() {
+        return taxRate;
+    }
+
+    public void setTaxRate(long taxRate) {
+        this.taxRate = taxRate;
+    }
+
+    public String toString() {
+        return "TaxID:" + taxID + "taxRate" + taxRate;
     }
 }

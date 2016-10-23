@@ -14,7 +14,7 @@ public class CitizenRowMapper implements RowMapper<Citizen> {
         Citizen citizen = new Citizen();
 
         citizen.setName(rs.getString("name"));
-        citizen.setSalary(rs.getDouble("salary"));
+        citizen.setSalary(rs.getLong("salary"));
 
         return citizen;
     }

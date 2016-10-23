@@ -10,7 +10,9 @@ public class Citizen {
     String name;
 
     @NotNull
-    double salary;
+    long salary;
+
+    long takeHomePay;
 
     public Citizen() {}
 
@@ -23,15 +25,23 @@ public class Citizen {
         this.name = name;
     }
 
-    public double getSalary() {
+    public long getSalary() {
         return salary;
     }
 
-    public void setSalary(double salary) {
+    public void setSalary(long salary) {
         this.salary = salary;
     }
 
+    public long getTakeHomePay() {
+        return takeHomePay;
+    }
+
+    public void setTakeHomePay(long takeHomePay) {
+        this.takeHomePay = takeHomePay;
+    }
+
     public String toString() {
-        return "Citizen [Name: " + name +" ; Salary: " + salary + "]";
+        return "Citizen [Name: " + name + " ; Salary: " + salary + " TakeHomePay: " + takeHomePay + "]";
     }
 }
